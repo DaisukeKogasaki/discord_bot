@@ -1,20 +1,23 @@
 require 'discordrb'
+require 'yaml'
+
+config = YAML.load_file("authentication.yml")
 
 bot = Discordrb::Commands::CommandBot.new(
-  token: 'MzkyMzI0Njc4NzYyNDk2MDAw.DRlncA.d_ybtlaHzz01Y6fupMaIwsRBTWY',
-  client_id: 392324678762496000,
-  prefix:'/'
+  token: config["Authentication"]["TOKEN"],
+  client_id: config["Authentication"]["CLIENT_ID"],
+  prefix: config["Authentication"]["PREFIX"]
 )
 
 bot.command :hello do |event|
  event.send_message("hello, #{event.user.name}!")
 end
 
-bot.command :tube do |event|
-  event.send_message("https://www.youtube.com/results?search_query=pubg")
+bot.command :donkatsu do |event|
+  event.send_message(":innocent: :donkatsu: :innocent:")
 end
 
-bot.command :seyana do |event|
+bot.mention do |event|
   flg = rand(100)
   case flg
   when 0
