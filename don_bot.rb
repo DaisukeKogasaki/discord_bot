@@ -31,8 +31,14 @@ bot.mention do |event|
   end
 end
 
-ErangelDropSpots = ['Rozhok', 'School', 'Apartments', 'Yasnaya Polyana', 'Severny', 'Shooting Range', 'Mansion', 'Prison', 'Mylta', 'Mylta Power', 'Novolepnoye', 'Military', 'Ferry Pier', 'Primorsk', 'Hospital', 'Georgopol Crates', 'Georgopol South', 'Georgopol North', 'Zharki', 'Stalber', 'Kameshki', 'Pochinki', 'Ruins', 'Water Town', 'Farm']
-MiramarDropSpots = ['Pecado', 'San Martin', 'Hacienda del Patron', 'Minas Generales', 'Monte Nuevo', 'Chumacera', 'Los Leones', 'Puerto Paraiso', 'Impala', 'El Azahar', 'Cruz del Valle', 'La Cobreria', 'El Pozo', 'Valle del Mar', 'Prison', 'Los Higos', 'Power Grid', 'Water Treatment', 'Torre Ahumada', 'Campo Militar', 'La Bendita', 'East Islands']
+ErangelDropSpots = ['Rozhok', 'School', 'Apartments', 'Yasnaya Polyana', 'Severny', 'Shooting Range',
+                    'Mansion', 'Prison', 'Mylta', 'Mylta Power', 'Novolepnoye', 'Military', 'Ferry Pier',
+                    'Primorsk', 'Hospital', 'Georgopol Crates', 'Georgopol South', 'Georgopol North',
+                    'Zharki', 'Stalber', 'Kameshki', 'Pochinki', 'Ruins', 'Water Town', 'Farm']
+MiramarDropSpots = ['Pecado', 'San Martin', 'Hacienda del Patron', 'Minas Generales', 'Monte Nuevo',
+                    'Chumacera', 'Los Leones', 'Puerto Paraiso', 'Impala', 'El Azahar', 'Cruz del Valle',
+                    'La Cobreria', 'El Pozo', 'Valle del Mar', 'Prison', 'Los Higos', 'Power Grid',
+                    'Water Treatment', 'Torre Ahumada', 'Campo Militar', 'La Bendita', 'East Islands']
 
 bot.command(:goto, attributes = {:description => "don-bot will decide the destination instead of you at PUBG."}) do |event, map|
   case map
