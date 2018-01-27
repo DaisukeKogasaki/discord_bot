@@ -1,4 +1,4 @@
 Authentication:
   TOKEN: 'token'
   CLIENT_ID: client_id
-  PREFIX: '/'
+  PREFIX: '!'
