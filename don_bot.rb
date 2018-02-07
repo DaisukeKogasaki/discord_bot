@@ -14,7 +14,7 @@ bot = Discordrb::Commands::CommandBot.new(
 )
 
 bot.command(:hello, attributes = {:description => "don-bot sais hello for you."}) do |event|
- event.send_message("hello, #{event.user.name}!")
+  event.send_message("<@#{event.user.id}> Hello.")
 end
 
 bot.mention do |event|
@@ -57,6 +57,7 @@ html = open(url) do |f|
     charset = f.charset
     f.read
 end
+
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
 bot.command(:server, attributes = {:description => "Shows all server status at discord's voice chat."}) do |event|
@@ -75,7 +76,8 @@ bot.command(:server, attributes = {:description => "Shows all server status at d
     server_status.each{ |i, word| say_status << ("#{i} : #{word}\n") }
     say_status << "```"
 
-    event.send_message say_status # TODO コマンド終了後に`0`が表示される
+    event.send_message say_status
+    break # コマンド終了後に`0`が表示される問題の仮対応
   end
 end
 
