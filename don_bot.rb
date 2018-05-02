@@ -60,7 +60,7 @@ end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
-bot.command(:server, attributes = {:description => "Shows all server status at discord's voice chat."}) do |event|
+bot.command(:server_status, attributes = {:description => "Shows all server status at discord's voice chat."}) do |event|
   doc.xpath('//div[@class="child-components-container "]').each do |node|
     server = []
     status = []
@@ -81,9 +81,24 @@ bot.command(:server, attributes = {:description => "Shows all server status at d
   end
 end
 
-# bot.message(containing: ['(╯°□°）╯︵ ┻━┻', '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻', '(ノಠ益ಠ)ノ彡┻━┻']) do |event|
-#   next if rate_limiter.rate_limited?(:example, event.channel)
-#   event.respond '┬─┬ノ( º _ ºノ)'
-# end
+rate_limiter = Discordrb::Commands::SimpleRateLimiter.new
+rate_limiter.bucket :example, delay: 5  # 5 seconds between each execution
+bot.message(containing: ['(╯°□°）╯︵ ┻━┻', '(ﾉಥ益ಥ）ﾉ﻿ ┻━┻', '(ノಠ益ಠ)ノ彡┻━┻']) do |event|
+  next if rate_limiter.rate_limited?(:example, event.channel)
+  event.respond '┬─┬ノ( º _ ºノ)'
+end
+
+bot.message(containing: ['せやな']) do |event|
+  next if rate_limiter.rate_limited?(:example, event.channel)
+  event.respond 'せやろか'
+end
+
+bot.command(:profile, attributes = {:description => "don-bot teaches your profile."}) do |event|
+  message = "<@#{event.user.id}>のプロフィール\n"
+  message << "User Name : #{event.user.username}\n"
+  # message << "Role : #{event.user.roles}\n"
+  message << "Avatar Image : #{event.user.avatar_url}\n"
+  event.send_message message
+end
 
 bot.run
