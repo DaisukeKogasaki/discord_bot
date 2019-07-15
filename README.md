@@ -1,16 +1,10 @@
 # discord_bot
 ## 概要
-* DiscordのBotを作ってみるテストプロジェクト
-
-## 目標
-* 特定の人が発言で以下を自動返答
-    * `せやな`
-    * `せやろか`
-    * 他あれば
+* Discord bot test
 
 ## 環境
-* Ruby : 2.3.4p301
+* Ruby : 2.6.3
 
 ## 使い方
-1. `gem install discordrb`
-1. `ruby don_bot.rb`
+1. `bundle install --path=vendor/bundle`
+1. `bundle exec ruby don_bot.rb`
