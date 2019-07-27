@@ -1,4 +1,6 @@
 Authentication:
-  TOKEN: 'token'
-  CLIENT_ID: client_id
+  TOKEN: 取得したトークン
+  CLIENT_ID: クライアントID
   PREFIX: '!'
+RiotAPI:
+  KEY: 取得したAPIキー
