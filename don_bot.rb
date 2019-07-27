@@ -4,7 +4,8 @@ require 'nokogiri'
 require 'open-uri'
 
 class DonBot
-  config = YAML.load_file("authentication.yml")
+  yaml_file = File.exist?("./local_authentication.yml") ? "local_authentication.yml" : "authentication.yml"
+  config = YAML.load_file(yaml_file)
   setting = config["Authentication"]
   bot = Discordrb::Commands::CommandBot.new(
     token: setting["TOKEN"],
